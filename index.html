@@ -1,0 +1,12 @@
+<html ng-app="StopwatchApp">
+	<head>
+		<script src="scripts/external/angular.js"></script>
+		<script src="scripts/app.js"></script>
+		<title>Stopwatch</title>
+	</head>
+	<body ng-controller="WatchController">
+		<h1>{{ title }}</h1>
+		<div>Current Time: {{ currentTime | date:'h:mm:ss a' }}</div>
+		<stopwatch time="currentTime"></stopwatch>
+	</body>
+</html>

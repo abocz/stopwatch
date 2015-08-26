@@ -1,0 +1,4 @@
+<h2>Stopwatch</h2>
+<div>Elapsed Time: {{ watch.getElapsedTime() }} ms</div>
+<button id="start" ng-click="watch.startStop()">{{ buttonText}}</button>
+<button id="reset" ng-click="watch.reset()" ng-disabled="watch.getElapsedTime() === 0">Reset</button>
