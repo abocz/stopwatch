@@ -2,6 +2,7 @@
   "version": "0.0.1",
   "private": true,
   "name": "stopwatch-app",
+  "description": "A tutorial application for AngularJS",
   "devDependencies": {
     "karma": "^0.12.16",
     "karma-chrome-launcher": "^0.1.4",

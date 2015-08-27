@@ -1,12 +1,25 @@
 <html ng-app="StopwatchApp">
 	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+	    <title>Stopwatch</title>
+
 		<script src="scripts/external/angular.js"></script>
 		<script src="scripts/app.js"></script>
-		<title>Stopwatch</title>
+	    <script src="scripts/external/ui-bootstrap-tpls-0.10.0.js"></script>
+	    <link href="styles/bootstrap.min.css" rel="stylesheet">
+	    <link href="styles/main.css" rel="stylesheet">
 	</head>
 	<body ng-controller="WatchController">
-		<h1>{{ title }}</h1>
-		<div>Current Time: {{ currentTime | date:'h:mm:ss a' }}</div>
-		<stopwatch time="currentTime"></stopwatch>
+		<div class="container">
+			<h1>{{ title }} <small>Currently: {{ currentTime | date:'medium' }} | Total Starts: {{ totalStarts }} | <button class="btn btn-success"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button></small></h1>			
+			<div class="jumbotron">
+				<stopwatch></stopwatch>
+			</div>
+
+			<time-chart></time-chart>
+		</div>
 	</body>
 </html>

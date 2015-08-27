@@ -1,4 +1,6 @@
 <h2>Stopwatch</h2>
-<div>Elapsed Time: {{ watch.getElapsedTime() }} ms</div>
-<button id="start" ng-click="watch.startStop()">{{ buttonText}}</button>
-<button id="reset" ng-click="watch.reset()" ng-disabled="watch.getElapsedTime() === 0">Reset</button>
+<div><h2> {{ watch.getElapsedTime() | date:'mm:ss:sss'}} </h2></div>
+<div>
+	<button class="btn btn-lg btn-primary" id="start" ng-click="watch.startStop()">{{ buttonText}}</button>
+	<button class="btn btn-lg btn-primary" id="reset" ng-click="watch.reset()" ng-disabled="watch.getElapsedTime() === 0">Reset</button>
+</div>

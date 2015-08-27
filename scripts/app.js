@@ -1,11 +1,14 @@
-var app = angular.module('StopwatchApp', []);
+var app = angular.module('StopwatchApp', ['ui.bootstrap']);
 
 app.controller('WatchController', function ($scope, $interval) {
 	$scope.title = "Stopwatch App";
 	$scope.currentTime = new Date();
+	$scope.startTimes = [];
+	$scope.totalStarts = 0;
 	$interval(function() {
 		$scope.currentTime = new Date();
 	}, 500);
+
 });
 
 app.directive('stopwatch', function() {
@@ -19,12 +22,15 @@ app.directive('stopwatch', function() {
 			var totalElapsedTime = 0;
 			var startTime;
 			var timerPromise;
+
 			$scope.buttonText = "Start";
 
 			this.startStop = function() {
 				if (!timerPromise) {
 					$scope.buttonText = "Stop";
 					startTime = new Date();
+					$scope.startTimes.push(startTime);
+					$scope.totalStarts++;
 					timerPromise = $interval(function() {
 						var now = new Date();
 						elapsedTime = now.getTime() - startTime.getTime();
@@ -45,6 +51,24 @@ app.directive('stopwatch', function() {
 
 			this.getElapsedTime = function() {
 				return totalElapsedTime + elapsedTime;
+			};
+		}
+	};
+});
+
+app.directive('timeChart', function() {
+	return {
+		restrict: 'E',
+		templateUrl: '../views/startTime.html',
+		
+		controllerAs: 'chart',
+		controller: function($scope) {
+			this.getStartTimes = function() {
+				return $scope.startTimes;
+			};
+
+			this.clearStartTimes = function() {
+				$scope.startTimes = [];
 			};
 		}
 	};

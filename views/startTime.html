@@ -1,0 +1,11 @@
+<h3>Start Times</h3>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<tr ng-repeat="time in chart.getStartTimes()">
+			<td>{{ time  | date:'M/d/yy h:mm:ss a'}}</td>
+		</tr>
+	</table>
+	<button class="btn btn-primary btn-danger" id="clearTimes" ng-click="chart.clearStartTimes()" ng-disabled=""> 
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Clear Times
+	</button>
+</div>
